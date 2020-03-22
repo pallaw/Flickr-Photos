@@ -14,7 +14,7 @@ const val BASE_URL = "https://api.flickr.com"
 const val FIRST_PAGE = 1
 const val ITEM_PER_PAGE = 15
 
-object TheMovieDBClient {
+object ApiClient {
 
     fun getClient(): ApiService {
 

@@ -13,10 +13,10 @@ import io.reactivex.disposables.CompositeDisposable
 class RecentPhotoPagedListRepository(private val apiService: ApiService) {
 
     lateinit var photoPagedList: LiveData<PagedList<Photo>>
-    lateinit var photosDataSourceFactoryRecent: RecentPhotoDataSourceFactory
+    lateinit var photosDataSourceFactory: RecentPhotoDataSourceFactory
 
     fun fetchLiveRecentPhotoPagedList(compositeDisposable: CompositeDisposable): LiveData<PagedList<Photo>> {
-        photosDataSourceFactoryRecent =
+        photosDataSourceFactory =
             RecentPhotoDataSourceFactory(
                 apiService,
                 compositeDisposable
@@ -27,14 +27,14 @@ class RecentPhotoPagedListRepository(private val apiService: ApiService) {
             .setPageSize(ITEM_PER_PAGE)
             .build()
 
-        photoPagedList = LivePagedListBuilder(photosDataSourceFactoryRecent, config).build()
+        photoPagedList = LivePagedListBuilder(photosDataSourceFactory, config).build()
 
         return photoPagedList
     }
 
     fun getNetworkState(): LiveData<NetworkState> {
         return Transformations.switchMap<RecentPhotoDataSource, NetworkState>(
-            photosDataSourceFactoryRecent.photosLiveDataSource, RecentPhotoDataSource::networkState
+            photosDataSourceFactory.photosLiveDataSource, RecentPhotoDataSource::networkState
         )
     }
 }
