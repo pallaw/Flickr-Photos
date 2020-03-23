@@ -8,5 +8,4 @@ data class PhotoInfoResponse(
     var photo: Photo = Photo(),
     @SerializedName("stat")
     var stat: String = ""
-) {
-}
+)

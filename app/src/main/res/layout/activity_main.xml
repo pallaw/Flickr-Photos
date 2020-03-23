@@ -35,6 +35,13 @@
         </androidx.cardview.widget.CardView>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_main" />
+    <include
+        android:id="@+id/recentList"
+        layout="@layout/content_main"
+        android:visibility="gone"/>
 
+    <include
+        android:id="@+id/searchList"
+        android:visibility="visible"
+        layout="@layout/content_main" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
