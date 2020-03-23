@@ -1,6 +1,7 @@
 package com.pallaw.flickrphotos.data.remote
 
 import okhttp3.*
+import okhttp3.ResponseBody.Companion.toResponseBody
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -14,7 +15,7 @@ const val BASE_URL = "https://api.flickr.com"
 const val FIRST_PAGE = 1
 const val ITEM_PER_PAGE = 15
 
-object TheMovieDBClient {
+object ApiClient {
 
     fun getClient(): ApiService {
 
@@ -65,7 +66,7 @@ object TheMovieDBClient {
                 Timber.tag("Okhttp_response").d(rawJson)
 
                 return response.newBuilder()
-                    .body(ResponseBody.create(response.body!!.contentType(), rawJson)).build()
+                    .body(rawJson.toResponseBody(response.body!!.contentType())).build()
             }
         }
     }
