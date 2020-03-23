@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.pallaw.flickrphotos.R
-import com.pallaw.flickrphotos.util.NetworkState
 import com.pallaw.flickrphotos.data.model.Photo
 import com.pallaw.flickrphotos.data.model.getPhotoUrl
+import com.pallaw.flickrphotos.util.NetworkState
 import kotlinx.android.synthetic.main.network_state_item.view.*
 import kotlinx.android.synthetic.main.photo_list_item.view.*
 

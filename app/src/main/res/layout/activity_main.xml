@@ -38,10 +38,10 @@
     <include
         android:id="@+id/recentList"
         layout="@layout/content_main"
-        android:visibility="visible"/>
+        android:visibility="gone"/>
 
     <include
         android:id="@+id/searchList"
-        android:visibility="gone"
+        android:visibility="visible"
         layout="@layout/content_main" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

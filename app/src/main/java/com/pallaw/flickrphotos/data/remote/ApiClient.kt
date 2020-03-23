@@ -1,6 +1,7 @@
 package com.pallaw.flickrphotos.data.remote
 
 import okhttp3.*
+import okhttp3.ResponseBody.Companion.toResponseBody
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -65,7 +66,7 @@ object ApiClient {
                 Timber.tag("Okhttp_response").d(rawJson)
 
                 return response.newBuilder()
-                    .body(ResponseBody.create(response.body!!.contentType(), rawJson)).build()
+                    .body(rawJson.toResponseBody(response.body!!.contentType())).build()
             }
         }
     }
